@@ -1,0 +1,27 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: budget-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: budget
+    volumes:
+      - ./database.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - db_data:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: budget-web
+    ports:
+      - "1995:80"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db          
+      DB_USER: root
+      DB_PASS: ${DB_PASS}
+      DB_NAME: budget
+
+volumes:
+  db_data:
+

@@ -1,0 +1,260 @@
+/* Сброс стандартных отступов и установка box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Общие стили для страницы */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Шрифт страницы */
+
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf9 100%);
+    /* Фоновый градиент */
+
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Центральный контейнер */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Главный заголовок */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+/* Подзаголовки */
+h2 {
+    color: #34495e;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Блок баланса */
+.balance-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Отображение суммы баланса */
+.balance-amount {
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* Положительный баланс */
+.balance-amount.positive {
+    color: #27ae60;
+}
+
+/* Отрицательный баланс */
+.balance-amount.negative {
+    color: #e74c3c;
+}
+
+/* Блок формы */
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    margin-bottom: 30px;
+}
+
+/* Группа элементов формы */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* Подписи полей */
+label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #34495e;
+    font-size: 14px;
+}
+
+/* Общие стили для полей ввода */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    padding: 12px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Состояние фокуса для полей ввода */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* Настройки textarea */
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Выпадающий список */
+select {
+    cursor: pointer;
+}
+
+/* Контейнер кнопок */
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Кнопка */
+button {
+    padding: 12px 24px;
+    background: linear-gradient(to right, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* Наведение на кнопку */
+button:hover {
+    opacity: 0.9;
+}
+
+/* Нажатие кнопки */
+button:active {
+    opacity: 0.8;
+}
+
+/* Блок списка транзакций */
+.transactions-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Контейнер транзакций */
+#transactions-list {
+    display: grid;
+    gap: 20px;
+}
+
+/* Одна транзакция */
+.transaction-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Эффект наведения */
+.transaction-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Шапка транзакции */
+.transaction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Тип транзакции */
+.transaction-type {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+}
+
+/* Доход */
+.type-income {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* Расход */
+.type-expense {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Сумма */
+.transaction-amount {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Цвет суммы дохода */
+.amount-income {
+    color: #27ae60;
+}
+
+/* Цвет суммы расхода */
+.amount-expense {
+    color: #e74c3c;
+}
+
+/* Категория */
+.transaction-category {
+    color: #34495e;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+/* Описание */
+.transaction-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+/* Дата */
+.transaction-date {
+    font-size: 12px;
+    color: #95a5a6;
+}
+
+/* Сообщение при отсутствии операций */
+.empty-message {
+    text-align: center;
+    color: #95a5a6;
+    padding: 40px;
+    font-size: 18px;
+}
+
+/* Состояние ожидания (если понадобится) */
+.waiting {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

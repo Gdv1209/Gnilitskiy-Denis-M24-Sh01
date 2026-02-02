@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- Объявление типа документа: HTML5 -->
+
+<html lang="ru">
+<!-- Корневой элемент HTML-документа, язык страницы — русский -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Кодировка UTF-8, нужна для корректного отображения кириллицы -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Настройка отображения на мобильных устройствах -->
+
+    <title>Трекер бюджета</title>
+    <!-- Заголовок страницы (вкладка браузера) -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем файл стилей -->
+</head>
+
+<body>
+    <!-- Основное содержимое страницы -->
+
+    <div class="container">
+        <!-- Центральный контейнер, ограничивает ширину контента -->
+
+        <h1>Трекер бюджета</h1>
+        <!-- Главный заголовок страницы -->
+
+        <div class="balance-container">
+            <!-- Блок отображения текущего баланса -->
+
+            <h2>Текущий баланс</h2>
+
+            <div id="balance" class="balance-amount">0 ₽</div>
+            <!-- Элемент, в который JS подставляет рассчитанный баланс -->
+        </div>
+
+        <div class="form-container">
+            <!-- Блок с формой добавления операции -->
+
+            <h2 id="form-title">Добавить операцию</h2>
+
+            <form id="transaction-form">
+                <!-- Форма, отправка которой перехватывается JS -->
+
+                <div class="form-group">
+                    <!-- Группа элементов формы -->
+
+                    <label for="type">Тип операции</label>
+
+                    <select id="type" required>
+                        <!-- Выпадающий список выбора типа операции -->
+
+                        <option value="">Выберите тип</option>
+                        <option value="income">Доход</option>
+                        <option value="expense">Расход</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Сумма (₽)</label>
+
+                    <input
+                        type="number"
+                        id="amount"
+                        step="0.01"
+                        min="0.01"
+                        placeholder="Введите сумму"
+                        required>
+                    <!-- Поле ввода суммы операции -->
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Категория</label>
+
+                    <input
+                        type="text"
+                        id="category"
+                        placeholder="Введите категорию"
+                        required>
+                    <!-- Поле ввода категории -->
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Описание</label>
+
+                    <textarea
+                        id="description"
+                        rows="3"
+                        placeholder="Введите описание">
+                    </textarea>
+                    <!-- Поле ввода описания (необязательное) -->
+                </div>
+
+                <div class="form-buttons">
+                    <!-- Контейнер для кнопок формы -->
+
+                    <button type="submit" id="save-btn">Добавить</button>
+                    <!-- Кнопка отправки формы -->
+                </div>
+            </form>
+        </div>
+
+        <div class="transactions-container">
+            <!-- Блок со списком операций -->
+
+            <h2>Список операций</h2>
+
+            <div id="transactions-list"></div>
+            <!-- Контейнер, куда JS динамически добавляет транзакции -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- Подключение JS-файла с логикой приложения -->
+</body>
+
+</html>
